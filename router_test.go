@@ -10,7 +10,7 @@ import (
 func TestRouter(t *testing.T) {
 	r := router.New()
 
-	r.On("ping", func(i interface{}) { log.Println("hello") }).Desc("Responds with pong").Cat("general")
+	r.On("ping", func(_ *router.Context) { log.Println("hello") }).Desc("Responds with pong").Cat("general")
 	r.OnMatch("hello", router.NewRegexMatcher("h.llo"), nil).Desc("tests regular expressions").Cat("regex")
 
 	if rt := r.Find("ping"); rt != nil {
