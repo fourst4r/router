@@ -17,8 +17,8 @@ func (c *Context) Say(ch Channel, s string) {
 	c.Client.Say(ch, s)
 }
 
-func (c *Context) Reply(s string) {
-	c.Client.Say(c.Channel, fmt.Sprintf("%s %s", c.Author.Mention(), s))
+func (c *Context) Reply(s ...string) {
+	c.Client.Say(c.Channel, fmt.Sprintf("%s %s", c.Author.Mention(), fmt.Sprint(s)))
 }
 
 type Client interface {
