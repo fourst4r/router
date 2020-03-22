@@ -11,7 +11,7 @@ var (
 )
 
 // HandlerFunc is a command handler
-type HandlerFunc func(*Context) string
+type HandlerFunc func(*Context)
 
 // MiddlewareFunc is a middleware
 type MiddlewareFunc func(HandlerFunc) HandlerFunc
