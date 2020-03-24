@@ -36,8 +36,8 @@ func (c *Context) Say(ch Channel, s string) {
 }
 
 // Reply sends s and mentions the user who ran the command.
-func (c *Context) Reply(s ...string) {
-	text := fmt.Sprintf("%s %s", c.Author.Mention(), fmt.Sprint(s))
+func (c *Context) Reply(s ...interface{}) {
+	text := fmt.Sprintf("%s %s", c.Author.Mention(), fmt.Sprint(s...))
 	if c.Writer != nil {
 		c.Writer.WriteString(text)
 	} else {
